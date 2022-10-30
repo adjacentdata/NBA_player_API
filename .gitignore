@@ -25,3 +25,4 @@ htmlcov/
 *,cover
 
 project_files
+__pycache__
