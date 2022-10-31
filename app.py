@@ -19,6 +19,12 @@ class Players(db.Model):
     player_name = db.Column(db.String(80), nullable=False)
     team_id = db.Column(db.Integer, nullable=False)
     season = db.Column(db.Date)
+    
+
+    #Get all players in the NBA 
+    @classmethod
+    def all_players(cls):
+        return cls.query.all()
 
 @app.route('/')
 def hello():
