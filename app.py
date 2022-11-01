@@ -25,7 +25,9 @@ class Player(db.Model):
         self.player_name = player_name
         self.team_id = team_id
         self.season = season
-    
+
+    def __repr__(self) -> str:
+        return self.player_name
 
     #Get all players in the NBA 
     @classmethod
@@ -44,7 +46,6 @@ class Player(db.Model):
         db.session.commit()
 
     
-
 @app.route('/')
 def hello():
     """
