@@ -49,7 +49,4 @@ class Player(db.Model):
     
 @app.route('/')
 def hello():
-    """
-     Returns the application test hello 
-    """
     return "Hello"
