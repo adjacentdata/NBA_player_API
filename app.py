@@ -2,6 +2,7 @@ from flask import Flask
 from dotenv import load_dotenv
 import os
 from flask_sqlalchemy import SQLAlchemy
+from database import Player_Schema
 
 #Load environment variables
 load_dotenv()
