@@ -25,6 +25,8 @@ class Players(db.Model):
     @classmethod
     def all_players(cls):
         return cls.query.all()
+    
+    
 
 @app.route('/')
 def hello():
