@@ -21,13 +21,7 @@ class Player(db.Model):
     team_id = db.Column(db.Integer, nullable=False)
     season = db.Column(db.Date)
 
-    def __init___(self, player_name, team_id, player_id, season):
-        self.player_id = player_id
-        self.player_name = player_name
-        self.team_id = team_id
-        self.season = season
-
-    def __repr__(self) -> str:
+    def __repr__(self):
         return self.player_name
 
     #Get all players in the NBA 
@@ -50,3 +44,4 @@ class Player(db.Model):
 @app.route('/')
 def hello():
     return "Hello"
+
