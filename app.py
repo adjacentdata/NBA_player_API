@@ -43,6 +43,8 @@ class Player(db.Model):
 @app.get('/nba_players')
 def get_nba_players():
     players = Player.all_players()
+    schema=Player_Schema()
+    
     
 @app.route('/')
 def hello():
