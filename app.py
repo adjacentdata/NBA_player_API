@@ -40,8 +40,11 @@ class Player(db.Model):
         db.session.add(self)
         db.session.commit()
 
+@app.get('/nba_players')
+def get_nba_players():
+    players = Player.all_players()
     
 @app.route('/')
 def hello():
-    return "Hello"
+    return "Hello, Welcome to the NBA Player API"
 
