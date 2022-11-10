@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, jsonify
 from dotenv import load_dotenv
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -44,6 +44,8 @@ class Player(db.Model):
 def get_nba_players():
     players = Player.all_players()
     schema=Player_Schema()
+    list_of_players = schema.dump(players)
+    return jsonify(list_of_players)
     
     
 @app.route('/')
