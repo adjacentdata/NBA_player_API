@@ -52,7 +52,7 @@ def get_player_by_id(player_id):
     player = Player.get_player_by_id(player_id)
     schema = Player_Schema()
     chosen_player = schema.dump(player)
-    return jsonify(chosen_player)
+    return jsonify(chosen_player),200
     
 @app.route('/')
 def hello():
