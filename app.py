@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -33,8 +33,8 @@ class Player(db.Model):
     def get_player_by_name(cls, name):
         return cls.query.get_or_404(name)
     
-    def get_player_by_id(cls, id):
-        return cls.query.get_or_404(id)
+    def get_player_by_id(cls, player_id):
+        return cls.query.get_or_404(player_id)
     
     def add_player(self):
         db.session.add(self)
@@ -46,7 +46,13 @@ def get_nba_players():
     schema=Player_Schema()
     list_of_players = schema.dump(players)
     return jsonify(list_of_players)
-    
+
+@app.get('/nba_players/<int:player_id>')
+def get_player_by_id(player_id):
+    player = Player.get_player_by_id(player_id)
+    schema = Player_Schema()
+    chosen_player = schema.dump(player)
+    return jsonify(chosen_player)
     
 @app.route('/')
 def hello():
